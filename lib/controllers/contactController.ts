@@ -53,7 +53,7 @@ export class ContactController {
   }
 
   public delete(req: Request, res: Response) {
-    Contact.remove({ _id: req.params.id }, (err) => {
+    Contact.remove({ _id: req.params.id }, err => {
       if (err) {
         res.status(400).send(err);
       }
