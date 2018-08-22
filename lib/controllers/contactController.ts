@@ -36,4 +36,29 @@ export class ContactController {
       res.json(result);
     });
   }
+
+  public update(req: Request, res: Response) {
+    Contact.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true },
+      (err, result) => {
+        if (err) {
+          res.status(400).send(err);
+        }
+
+        res.json(result);
+      }
+    );
+  }
+
+  public delete(req: Request, res: Response) {
+    Contact.remove({ _id: req.params.id }, (err) => {
+      if (err) {
+        res.status(400).send(err);
+      }
+
+      res.json({ message: "Successfully deleted contact!" });
+    });
+  }
 }

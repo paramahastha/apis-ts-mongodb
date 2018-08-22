@@ -18,27 +18,12 @@ export class Routes {
     // Create Contact (POST)
     app.route("/contact").post(this.contactController.create);
 
-    // Contact detail
-    app
-      .route("/contact/:id")
-      // get specific contact
-      .get((req: Request, res: Response) => {
-        // Get a single contact detail
-        res.status(200).send({
-          message: "GET request successfulll!!!!"
-        });
-      })
-      .put((req: Request, res: Response) => {
-        // Update a contact
-        res.status(200).send({
-          message: "PUT request successfulll!!!!"
-        });
-      })
-      .delete((req: Request, res: Response) => {
-        // Delete a contact
-        res.status(200).send({
-          message: "DELETE request successfulll!!!!"
-        });
-      });
+    app.route("/contact/:id")
+      // Get By Id Contact (GET)
+      .get(this.contactController.get_by_id)
+      // Update By Id Contact (PUT)
+      .put(this.contactController.update)
+      // Delete By Id Contact (DELETE)
+      .delete(this.contactController.delete);
   }
 }
