@@ -17,7 +17,7 @@ Install docker -> docker-compose
 
 ## Getting Started
 
-After that, you will have to replace the mongoURL with your MongoDB address in *lib/app.ts*
+After that, you will have to replace the mongoURL with your MongoDB address in *lib/server.ts*
 
 ## Clone this repository
 
